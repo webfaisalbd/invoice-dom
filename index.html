@@ -40,26 +40,31 @@
           <p>Buyer details</p>
         </div>
         <br>
-        <form>
+        <!-- form  -->
+        <div>
           <div class="form-group">
             <label for="formGroupExampleInput">User Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter User Name">
+            <input type="text" class="form-control" id="name-input" placeholder="Enter User Name">
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">User Email</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter User Email">
+            <input type="text" class="form-control" id="email-input" placeholder="Enter User Email">
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">User Phone No.</label>
-            <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Enter User Phone No.">
+            <input type="number" class="form-control" id="phone-input" placeholder="Enter User Phone No.">
           </div>
           <br>
           <div class="user-input-button-div text-center">
-            <button class="btn btn-success" id="">Submit</button>
+            <button class="btn btn-success" onclick="handleUserInfoFunction()" id="handleUserInfo">Submit</button>
           </div>
           <br>
-        </form>
+        </div>
       </div>
+
+      
+      
+     
 
       <!-- buyer products details  -->
       <div class="col-md-6 bg-primary">
@@ -67,7 +72,8 @@
           <p>Buyer Product Details</p>
         </div>
         <marquee behavior="" direction="" class="text-white">You can add more items using input fields.</marquee>
-        <form>
+        <!-- form  -->
+        <div>
           <div class="form-group">
             <label for="formGroupExampleInput">Item Name</label>
             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Item Name">
@@ -82,10 +88,10 @@
           </div>
           <br>
           <div class="user-input-button-div text-center">
-            <button class="btn btn-success" id="">Submit</button>
+            <button class="btn btn-success" id="handleProductInfo">Submit</button>
           </div>
           <br>
-        </form>
+        </div>
       </div>
 
     </div>
@@ -105,9 +111,19 @@
 
       <div class="buyer-info">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col bg-success" style="height: 100px;">Lorem ipsum dolor sit.</div>
-          <div class="col bg-warning" style="height: 100px;">Lorem ipsum dolor sit.</div>
-          <div class="col bg-primary" style="height: 100px;">Lorem ipsum dolor sit.</div>
+          
+          <!-- todays date  -->
+          <div class="col bg-success">
+
+          </div>
+
+          <!-- User details show  -->
+          <div class="col bg-warning p-2 rounded">
+          <p>User Name :  <span id="name-output"></span></p>
+          <p>User Email : <span id="email-output"></span></p>
+          <p>User Phone : <span id="phone-output"></span></p>
+          </div>
+          <div class="col bg-primary">Lorem ipsum dolor sit.</div>
         </div>
       </div>
 
@@ -151,23 +167,21 @@
 
       <!-- amount  -->
       <div class="amount row bg-primary mt-5 p-2">
-          <div class="bank-details col-md-8">
-            <p class="text-warning">Bank Transfer</p>
-            <p><span class="text-danger">Account Name</span>: Faisal Ahmed  <br>
-               <span class="text-danger">Account Number</span>: 0012345678
-               <br>
-               <span class="text-danger">Code</span>: 1234567890
-               </p>
-          </div>
-          <div class="amount-details col-md-4">
-            <p class="text-warning">Total Amount</p>
+        <div class="bank-details col-md-8">
+          <p class="text-warning">Bank Transfer</p>
+          <p><span class="text-danger">Account Name</span>: Faisal Ahmed <br>
+            <span class="text-danger">Account Number</span>: 0012345678
+            <br>
+            <span class="text-danger">Code</span>: 1234567890
+          </p>
+        </div>
+        <div class="amount-details col-md-4">
+          <p class="text-warning">Total Amount</p>
 
-           <p> $ 0</p>
-            <p><small>Taxes Included</small></p>
-          </div>
+          <p> $ 0</p>
+          <p><small>Taxes Included</small></p>
+        </div>
       </div>
-
-
 
 
 
@@ -177,7 +191,7 @@
 
 
 
-
+    <!-- footer  -->
     <footer class="bg-info p-3">
       <p class="text-center">All rights reserve @faisalBD</p>
     </footer>
