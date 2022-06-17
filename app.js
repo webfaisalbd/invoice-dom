@@ -80,6 +80,8 @@ function calculateTotal(){
     const tax = (subTotal * 0.20).toFixed(2);
     document.getElementById('tax').innerText = tax;
 
+    document.getElementById('grand-total').innerText = subTotal + tax;
+
     
 
 
