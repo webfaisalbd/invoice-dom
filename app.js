@@ -72,16 +72,20 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
 
 function calculateTotal(){
 
+    // subTotal 
     const subTotal = calculateSubTotal();
     const displaySubTotal = document.getElementById('sub-total');
     displaySubTotal.innerText = subTotal;
 
 
-    const tax = (subTotal * 0.20).toFixed(2);
+    // tax 
+    const tax = Number((subTotal * 0.20).toFixed(2));
     document.getElementById('tax').innerText = tax;
 
+    // grand total 
     document.getElementById('grand-total').innerText = subTotal + tax;
 
+    // final total 
     document.getElementById('final-total').innerText = subTotal + tax;
 
 
