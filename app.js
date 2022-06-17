@@ -5,7 +5,7 @@
 
 // }
 
-const handleUserInfo = document.getElementById('handleUserInfo').addEventListener('click',function(){
+const handleUserInfo = document.getElementById('handleUserInfo').addEventListener('click', function () {
     //  for taking input 
     const nameInput = document.getElementById('name-input').value;
     const emailInput = document.getElementById('email-input').value;
@@ -24,22 +24,46 @@ const handleUserInfo = document.getElementById('handleUserInfo').addEventListene
 
 
 
-// product info get and show 
+// product info get and show on table 
 
-const handleProductInfo = document.getElementById('handleProductInfo').addEventListener('click',function(){
+const handleProductInfo = document.getElementById('handleProductInfo').addEventListener('click', function () {
     //  for taking input 
     const itemNameInput = document.getElementById('item-name-input').value;
     const itemPriceInput = document.getElementById('item-price-input').value;
     const itemQuantityInput = document.getElementById('item-quantity-input').value;
     // console.log(itemNameInput, itemPriceInput, itemQuantityInput);
 
-    // for showing input 
-    const itemNameOutput = document.getElementById('item-name-output');
-    const itemPriceOutput = document.getElementById('item-price-output');
-    const itemQuantityOutput = document.getElementById('item-quantity-output');
-    itemNameOutput.innerText = itemNameInput;
-    itemPriceOutput.innerText = itemPriceInput;
-    itemQuantityOutput.innerText = itemQuantityInput;
+    // for showing output
+
+    const tableBody = document.getElementById('table-body');
+    
+    // <tr>
+    //     <th scope="row">1</th>
+    //     <td>Mark</td>
+    //     <td>Otto</td>
+    //     <td>@mdo</td>
+    // </tr>
+
+    const tr = document.createElement('tr');
+    const th = document.createElement('th');
+    const td1 = document.createElement('td');
+    const td2 = document.createElement('td');
+    const td3 = document.createElement('td');
+
+
+    th.innerText = itemNameInput;
+    td1.innerText = itemPriceInput;
+    td2.innerText = itemQuantityInput;
+    td3.innerText = Number(itemPriceInput)* Number(itemQuantityInput);
+
+
+    tr.appendChild(th);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tableBody.appendChild(tr);
+
+
 })
 
 
