@@ -36,7 +36,7 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     // for showing output
 
     const tableBody = document.getElementById('table-body');
-    
+
     // <tr>
     //     <th scope="row">1</th>
     //     <td>Mark</td>
@@ -49,12 +49,13 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     const td1 = document.createElement('td');
     const td2 = document.createElement('td');
     const td3 = document.createElement('td');
+    td3.classList.add('item-total');
 
 
     th.innerText = itemNameInput;
     td1.innerText = itemPriceInput;
     td2.innerText = itemQuantityInput;
-    td3.innerText = Number(itemPriceInput)* Number(itemQuantityInput);
+    td3.innerText = Number(itemPriceInput) * Number(itemQuantityInput);
 
 
     tr.appendChild(th);
@@ -64,8 +65,40 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     tableBody.appendChild(tr);
 
 
+    calculateTotal();
+
 })
 
+
+function calculateTotal(){
+
+    const subTotal = calculateSubTotal();
+    const displaySubTotal = document.getElementById('sub-total');
+    displaySubTotal.innerText = subTotal;
+
+
+
+
+    
+}
+
+
+function calculateSubTotal() {
+    const itemTotal = document.getElementsByClassName('item-total');
+    let subTotal = 0;
+
+    // console.log("subtotal", itemTotal);
+
+    for (let i = 0; i < itemTotal.length; i++) {
+        // console.log(itemTotal[i]);
+        const price = itemTotal[i].innerText;
+        // console.log(price);
+        subTotal = subTotal + Number(price);
+    }
+
+    return subTotal;
+
+}
 
 
 

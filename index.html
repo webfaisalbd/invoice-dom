@@ -22,7 +22,7 @@
 
 
     <!-- title  -->
-    <div class="row">
+    <div class="">
       <div class="bg-info col-12 text-center">
         <h1> <span><i class="fas fa-file-invoice-dollar"></i></span> invocice</h1>
       </div>
@@ -129,12 +129,10 @@
           </div>
           <div class="col  me-4 bg-primary p-2 rounded">
             <p class="text-warning">SELLER </p>
-            <p> <span class="text-white" > Faisal </span></p>
-            <p> <span class="text-white" > faisal-bazar@sell.com </span></p>
-            <p> <span class="text-white" > Karwan Bazar, Dhaka, Bangladesh </span></p>
-            <!-- <p>Items Name : <span class="text-white" id="item-name-output"></span></p>
-            <p>Items Price : <span class="text-white" id="item-price-output"></span></p>
-            <p>Items Quantity : <span class="text-white" id="item-quantity-output"></span></p> -->
+            <p> <span class="text-white"> Faisal </span></p>
+            <p> <span class="text-white"> faisal-bazar@sell.com </span></p>
+            <p> <span class="text-white"> Karwan Bazar, Dhaka, Bangladesh </span></p>
+
           </div>
         </div>
       </div>
@@ -152,6 +150,7 @@
               <th scope="col">Total</th>
             </tr>
           </thead>
+
           <tbody id="table-body">
             <!-- <tr>
               <th scope="row">1</th>
@@ -159,8 +158,31 @@
               <td>Otto</td>
               <td>@mdo</td>
             </tr> -->
-           
-            
+          </tbody>
+
+
+          <tbody>
+
+            <!-- subTotal  -->
+            <tr>
+              <!-- 3 ta column nise SubTotal, tar sathe SubTotal text ta k 3 ta column er last e dekhanor jonno text-end dise  -->
+              <td colspan="3" class="text-end fw-bold">SubTotal</td>
+              <td class="text-right">$<span id="sub-total">0</span></td>
+            </tr>
+
+            <!-- tax  -->
+            <tr>
+              <td colspan="3" class="text-end fw-bold">Tax</td>
+              <td class="text-right">$ <span id="tax">0</span></td>
+            </tr>
+
+            <!-- grand total  -->
+            <tr>
+              <td colspan="3" class="text-end fw-bold">Grand Total</td>
+              <td class="text-right fw-bold">$ <span id="grand-total">0</span> </td>
+            </tr>
+
+
           </tbody>
         </table>
       </div>
@@ -179,10 +201,10 @@
           </p>
         </div>
         <div class="amount-details col-md-4">
-          <p class="text-warning">Total Amount</p>
+          <p class="text-warning text-end">Total Amount</p>
 
-          <p> $ 0</p>
-          <p><small>Taxes Included</small></p>
+          <h4 class="text-end"> $ <span id="final-total" class="text-warning">0</span></h4>
+          <p class="text-end"><small>Taxes Included</small></p>
         </div>
       </div>
 
