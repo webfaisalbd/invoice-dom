@@ -41,10 +41,17 @@ const handleUserInfo = document.getElementById('handleUserInfo').addEventListene
         emailOutput.innerText = emailInput;
         phoneOutput.innerText = phoneInput;
 
-        // reset 
-        document.getElementById('name-input').value = '';
-        document.getElementById('email-input').value = '';
-        document.getElementById('phone-input').value = '';
+        // reset with manual
+        // document.getElementById('name-input').value = '';
+        // document.getElementById('email-input').value = '';
+        // document.getElementById('phone-input').value = '';
+
+
+        // reset with function 
+        reset('name-input');
+        reset('email-input');
+        reset('phone-input');
+        
 
         // sweet alert 
         Swal.fire({
@@ -72,7 +79,7 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     const itemPriceInput = document.getElementById('item-price-input').value;
     const itemQuantityInput = document.getElementById('item-quantity-input').value;
 
-    if (itemNameInput == '' || itemPriceInput < 0  || itemPriceInput == '' || itemQuantityInput < 0 || itemQuantityInput == '') {
+    if (itemNameInput == '' || itemPriceInput < 0 || itemPriceInput == '' || itemQuantityInput < 0 || itemQuantityInput == '') {
 
         // console.log(itemNameInput, itemPriceInput, itemQuantityInput);
         Swal.fire({
@@ -91,55 +98,61 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     else {
 
 
-        
-    // for showing output
 
-    const tableBody = document.getElementById('table-body');
+        // for showing output
 
-    // <tr>
-    //     <th scope="row">1</th>
-    //     <td>Mark</td>
-    //     <td>Otto</td>
-    //     <td>@mdo</td>
-    // </tr>
+        const tableBody = document.getElementById('table-body');
 
-    const tr = document.createElement('tr');
-    const th = document.createElement('th');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
-    const td3 = document.createElement('td');
-    td3.classList.add('item-total');
+        // <tr>
+        //     <th scope="row">1</th>
+        //     <td>Mark</td>
+        //     <td>Otto</td>
+        //     <td>@mdo</td>
+        // </tr>
 
-
-    th.innerText = itemNameInput;
-    td1.innerText = itemPriceInput;
-    td2.innerText = itemQuantityInput;
-    td3.innerText = Number(itemPriceInput) * Number(itemQuantityInput);
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        const td3 = document.createElement('td');
+        td3.classList.add('item-total');
 
 
-    tr.appendChild(th);
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tableBody.appendChild(tr);
+        th.innerText = itemNameInput;
+        td1.innerText = itemPriceInput;
+        td2.innerText = itemQuantityInput;
+        td3.innerText = Number(itemPriceInput) * Number(itemQuantityInput);
 
 
-    calculateTotal();
-
-    // sweet alert 
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Item Information Added on Cart',
-        showConfirmButton: false,
-        timer: 1500
-    })
+        tr.appendChild(th);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tableBody.appendChild(tr);
 
 
-    // reset 
-    document.getElementById('item-name-input').value = '';
-    document.getElementById('item-price-input').value = '';
-    document.getElementById('item-quantity-input').value = '';
+        calculateTotal();
+
+        // sweet alert 
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Item Information Added on Cart',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+
+        // reset with manual
+        // document.getElementById('item-name-input').value = '';
+        // document.getElementById('item-price-input').value = '';
+        // document.getElementById('item-quantity-input').value = ''; 
+
+        // reset with function 
+        reset('item-name-input');
+        reset('item-price-input');
+        reset('item-quantity-input');
+
 
     }
 
@@ -191,6 +204,10 @@ function calculateSubTotal() {
 
 
 
+// reset 
+function reset(value) {
+    return document.getElementById(value).value = '';
+}
 
 
 // random invoice id generate 
