@@ -14,6 +14,13 @@
   <!-- fontawesome icon cdn -->
   <script src="https://kit.fontawesome.com/017682a526.js" crossorigin="anonymous"></script>
 
+
+  <!-- html2canvas cdn and need to the link html2canvas.min.js  -->
+  <!-- Website Link  https://cdnjs.com/libraries/html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  
+
 </head>
 
 <body>
@@ -100,7 +107,7 @@
 
 
     <!-- invoice output  -->
-    <div class="bg-info container mt-5 mb-5">
+    <div  id="capture" class="bg-info container mt-5 mb-5">
 
       <div class="invoice-number">
         <h3 class="p-2 text-white">Invoice#<span id="invoice-id"></span></h3>
@@ -213,7 +220,10 @@
 
     </div>
 
-
+    <!-- make screenshot  -->
+    <div class="my-4 text-center">
+      <button class="bg-primary text-white rounded"  onclick="downloadInvoice()">Download Invoice</button>
+    </div>
 
 
     <!-- footer  -->
@@ -230,6 +240,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- ----------------  -->
   <script src="app.js"></script>
+  
 </body>
 
 </html>

@@ -51,7 +51,7 @@ const handleUserInfo = document.getElementById('handleUserInfo').addEventListene
         reset('name-input');
         reset('email-input');
         reset('phone-input');
-        
+
 
         // sweet alert 
         Swal.fire({
@@ -103,18 +103,20 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
 
         const tableBody = document.getElementById('table-body');
 
-        // <tr>
-        //     <th scope="row">1</th>
-        //     <td>Mark</td>
-        //     <td>Otto</td>
-        //     <td>@mdo</td>
-        // </tr>
+        // create tr th td in manually 
+        // const tr = document.createElement('tr');
+        // const th = document.createElement('th');
+        // const td1 = document.createElement('td');
+        // const td2 = document.createElement('td');
+        // const td3 = document.createElement('td');
 
-        const tr = document.createElement('tr');
-        const th = document.createElement('th');
-        const td1 = document.createElement('td');
-        const td2 = document.createElement('td');
-        const td3 = document.createElement('td');
+        // create tr th td with function  
+        const tr = createElementFunction('tr');
+        const th = createElementFunction('th');
+        const td1 = createElementFunction('td');
+        const td2 = createElementFunction('td');
+        const td3 = createElementFunction('td');
+
         td3.classList.add('item-total');
 
 
@@ -203,6 +205,10 @@ function calculateSubTotal() {
 }
 
 
+function createElementFunction(element) {
+    return document.createElement(element)
+}
+
 
 // reset 
 function reset(value) {
@@ -228,3 +234,21 @@ console.log(dateValue);
 
 const showDate = document.getElementById('showDate');
 showDate.innerText = dateValue;
+
+
+
+// download Invoice 
+// document.querySelector("#capture")
+function downloadInvoice(){
+    // #capture is the id, jei part ta ami capture korte chai, se part er ekta id
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+      var link = document.createElement('a');
+      document.body.appendChild(link)
+      link.download = 'invoice.png';
+      link.href = canvas.toDataURL('image/png');
+      link.target = '_blank';
+      link.click();
+      
+  });
+  }
+
