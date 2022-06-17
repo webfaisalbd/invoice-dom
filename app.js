@@ -20,3 +20,15 @@ const handleUserInfo = document.getElementById('handleUserInfo').addEventListene
     emailOutput.innerText = emailInput;
     phoneOutput.innerText = phoneInput;
 })
+
+
+// current date 
+const todayDate = new Date();
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+options.timeZone = 'UTC';
+options.timeZoneName = 'short';
+const dateValue = todayDate.toLocaleDateString('en-US', options);
+console.log(dateValue);
+
+const showDate = document.getElementById('showDate');
+showDate.innerText = dateValue;
