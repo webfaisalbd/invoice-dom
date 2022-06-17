@@ -77,6 +77,10 @@ function calculateTotal(){
     displaySubTotal.innerText = subTotal;
 
 
+    const tax = (subTotal * 0.20).toFixed(2);
+    document.getElementById('tax').innerText = tax;
+
+    
 
 
     
