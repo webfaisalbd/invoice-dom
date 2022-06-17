@@ -82,7 +82,7 @@ function calculateTotal(){
 
     document.getElementById('grand-total').innerText = subTotal + tax;
 
-    
+    document.getElementById('final-total').innerText = subTotal + tax;
 
 
     
