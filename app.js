@@ -114,13 +114,10 @@ function calculateSubTotal() {
 
 
 
-
-
-
-
-
-
-
+// random invoice id generate 
+const invoiceId = document.getElementById('invoice-id');
+const generateInvoiceId = parseInt((Math.random() * 100)*12345);
+invoiceId.innerText = generateInvoiceId;
 
 
 
