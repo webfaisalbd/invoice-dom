@@ -12,13 +12,53 @@ const handleUserInfo = document.getElementById('handleUserInfo').addEventListene
     const phoneInput = document.getElementById('phone-input').value;
     // console.log(nameInput, emailInput, phoneInput);
 
-    // for showing input 
-    const nameOutput = document.getElementById('name-output');
-    const emailOutput = document.getElementById('email-output');
-    const phoneOutput = document.getElementById('phone-output');
-    nameOutput.innerText = nameInput;
-    emailOutput.innerText = emailInput;
-    phoneOutput.innerText = phoneInput;
+    if (nameInput == '' || emailInput == '' || phoneInput == '') {
+
+        Swal.fire({
+            title: 'Provide All the User Information',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
+
+        return;
+
+
+    }
+    else {
+
+        // for showing input 
+        const nameOutput = document.getElementById('name-output');
+        const emailOutput = document.getElementById('email-output');
+        const phoneOutput = document.getElementById('phone-output');
+
+
+
+        nameOutput.innerText = nameInput;
+        emailOutput.innerText = emailInput;
+        phoneOutput.innerText = phoneInput;
+
+        // reset 
+        document.getElementById('name-input').value = '';
+        document.getElementById('email-input').value = '';
+        document.getElementById('phone-input').value = '';
+
+        // sweet alert 
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'User Information Submitted successfully',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
+
+
+
 })
 
 
@@ -31,8 +71,27 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
     const itemNameInput = document.getElementById('item-name-input').value;
     const itemPriceInput = document.getElementById('item-price-input').value;
     const itemQuantityInput = document.getElementById('item-quantity-input').value;
-    // console.log(itemNameInput, itemPriceInput, itemQuantityInput);
 
+    if (itemNameInput == '' || itemPriceInput < 0  || itemPriceInput == '' || itemQuantityInput < 0 || itemQuantityInput == '') {
+
+        // console.log(itemNameInput, itemPriceInput, itemQuantityInput);
+        Swal.fire({
+            title: 'Provide Valid Item Information',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
+
+        return;
+    }
+
+    else {
+
+
+        
     // for showing output
 
     const tableBody = document.getElementById('table-body');
@@ -67,10 +126,30 @@ const handleProductInfo = document.getElementById('handleProductInfo').addEventL
 
     calculateTotal();
 
+    // sweet alert 
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item Information Added on Cart',
+        showConfirmButton: false,
+        timer: 1500
+    })
+
+
+    // reset 
+    document.getElementById('item-name-input').value = '';
+    document.getElementById('item-price-input').value = '';
+    document.getElementById('item-quantity-input').value = '';
+
+    }
+
+
+
+
 })
 
 
-function calculateTotal(){
+function calculateTotal() {
 
     // subTotal 
     const subTotal = calculateSubTotal();
@@ -89,7 +168,7 @@ function calculateTotal(){
     document.getElementById('final-total').innerText = subTotal + tax;
 
 
-    
+
 }
 
 
@@ -116,7 +195,7 @@ function calculateSubTotal() {
 
 // random invoice id generate 
 const invoiceId = document.getElementById('invoice-id');
-const generateInvoiceId = parseInt((Math.random() * 100)*12345);
+const generateInvoiceId = parseInt((Math.random() * 100) * 12345);
 invoiceId.innerText = generateInvoiceId;
 
 
